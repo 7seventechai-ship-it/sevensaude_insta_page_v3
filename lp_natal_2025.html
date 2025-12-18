@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seven Saúde | Presente de Natal: Sua primeira consulta é grátis</title>
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PJ2KCM3C');</script>
+    <!-- End Google Tag Manager -->
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #24a8a0;
+            --primary-light: #3fc0b8;
+            --primary-dark: #1a7a74;
+            --accent: #7C3AED;
+            --accent-light: #9F67FF;
+            --dark: #2A3F54;
+            --darker: #1A2332;
+            --gold: #FFB800;
+            --red-festive: #C41E3A;
+            --green-festive: #165B33;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: white;
+            background: #000;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 1.5rem;
+            background: rgba(26, 35, 50, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(36, 168, 160, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 1.75rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            text-decoration: none;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(36, 168, 160, 0.4);
+        }
+        
+        .btn-large {
+            padding: 1.25rem 2.5rem;
+            font-size: 1.125rem;
+        }
+        
+        .btn-gold {
+            background: linear-gradient(135deg, #FFB800, #FFA000);
+            color: #1A2332;
+            font-weight: 700;
+        }
+        
+        .btn-gold:hover {
+            box-shadow: 0 8px 24px rgba(255, 184, 0, 0.5);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: rgba(36, 168, 160, 0.1);
+            box-shadow: none;
+        }
+        
+        .btn-header {
+            padding: 0.5rem 1rem;
+            font-size: 0.8125rem;
+        }
+        
+        /* HERO */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--dark);
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+        
+        .hero-bg > div,
+        .hero-bg > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 35, 50, 0.92) 0%, rgba(42, 63, 84, 0.88) 100%);
+            z-index: 2;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            padding: 8rem 1.5rem 3rem;
+            width: 100%;
+        }
+        
+        .christmas-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--red-festive), #E74C3C);
+            color: white;
+            padding: 0.625rem 1.5rem;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
+        }
+        
+        .hero-badges {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.125rem;
+            background: rgba(255, 184, 0, 0.12);
+            backdrop-filter: blur(20px);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            border: 1px solid rgba(255, 184, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .hero-badge:hover {
+            background: rgba(255, 184, 0, 0.18);
+            border-color: rgba(255, 184, 0, 0.4);
+        }
+        
+        .badge-detail {
+            font-size: 0.6875rem;
+            opacity: 0.85;
+            font-weight: 400;
+        }
+        
+        .stars {
+            color: #FFB800;
+            font-size: 0.8125rem;
+            letter-spacing: 0.05em;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #FFB800, #FFA000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .gradient-text-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+        
+        .offer-highlight {
+            background: rgba(36, 168, 160, 0.12);
+            border: 2px solid var(--primary);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .offer-highlight h2 {
+            font-size: 2rem;
+            color: var(--primary-light);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .offer-highlight p {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+        }
+        
+        .offer-highlight .small-text {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.7);
+            margin-top: 0.5rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .urgency-note {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gold);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        
+        /* OFFER DETAILS SECTION */
+        .offer-details {
+            background: linear-gradient(180deg, #1A2332 0%, #2A3F54 100%);
+            padding: 4rem 1.5rem;
+            border-top: 1px solid rgba(255, 184, 0, 0.3);
+        }
+        
+        .offer-details-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .section-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), #FFA000);
+            color: #1A2332;
+            padding: 0.5rem 1.25rem;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .offer-details h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .offer-details-intro {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 3rem;
+            line-height: 1.6;
+        }
+        
+        .specialties-grid {
+            display: grid;
+            gap: 1.25rem;
+            margin-top: 3rem;
+        }
+        
+        .specialty-card {
+            background: rgba(36, 168, 160, 0.08);
+            border: 1px solid rgba(36, 168, 160, 0.2);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+        
+        .specialty-card:hover {
+            border-color: var(--primary);
+            background: rgba(36, 168, 160, 0.12);
+            transform: translateY(-4px);
+        }
+        
+        .specialty-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .specialty-card h3 {
+            font-size: 1.375rem;
+            color: var(--primary-light);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+        }
+        
+        .specialty-card p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .specialty-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .specialty-list li {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9375rem;
+            padding: 0.375rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .specialty-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-light);
+            font-weight: 700;
+        }
+        
+        /* STATS */
+        .stats {
+            background: #fafafa;
+            padding: 3rem 1.5rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+            border: 1px solid rgba(36, 168, 160, 0.3);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(36, 168, 160, 0.1), transparent);
+        }
+        
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-label {
+            font-size: 1.25rem;
+            line-height: 1.4;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+        
+        .stat-note {
+            font-size: 0.9375rem;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        /* HOW IT WORKS */
+        .how-it-works {
+            padding: 4rem 1.5rem;
+            background: white;
+            color: var(--darker);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #666;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .steps-grid {
+            display: grid;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .step-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border: 2px solid #e9ecef;
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -1rem;
+            left: 2rem;
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, var(--gold), #FFA000);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1A2332;
+            box-shadow: 0 4px 12px rgba(255, 184, 0, 0.3);
+        }
+        
+        .step-card h3 {
+            font-size: 1.375rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1rem;
+            color: var(--darker);
+        }
+        
+        .step-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* FEATURES CARDS */
+        .features {
+            padding: 4rem 1.5rem;
+            background: var(--darker);
+        }
+        
+        .cards-grid {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+        
+        .feature-card {
+            position: relative;
+            height: 380px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        
+        .feature-card img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+        
+        .feature-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.9) 100%);
+            z-index: 2;
+        }
+        
+        .feature-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem 1.5rem;
+            color: white;
+            z-index: 3;
+        }
+        
+        .card-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.375rem 0.875rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            margin-bottom: 0.75rem;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.75rem;
+            line-height: 1.3;
+            margin-top: 0.75rem;
+        }
+        
+        /* TESTIMONIALS */
+        .testimonials {
+            padding: 4rem 1.5rem;
+            background: #fafafa;
+            color: var(--darker);
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        
+        .testimonial-stars {
+            color: #FFB800;
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-text {
+            font-size: 1.0625rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: var(--darker);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: white;
+        }
+        
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--darker);
+        }
+        
+        .testimonial-location {
+            font-size: 0.875rem;
+            color: #666;
+        }
+        
+        /* CTA BANNER */
+        .cta-banner {
+            background: linear-gradient(135deg, #FFB800 0%, #FFA000 50%, var(--red-festive) 100%);
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+        
+        .cta-banner h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .cta-banner .countdown {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+        
+        .cta-banner p {
+            font-size: 1.125rem;
+            margin-bottom: 2.5rem;
+            color: rgba(255,255,255,0.95);
+            line-height: 1.6;
+        }
+        
+        .cta-banner .btn {
+            background: white;
+            color: var(--red-festive);
+            font-weight: 700;
+        }
+        
+        .cta-banner .btn:hover {
+            background: rgba(255,255,255,0.95);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--darker);
+            padding: 3rem 1.5rem 2rem;
+            border-top: 1px solid rgba(36, 168, 160, 0.2);
+        }
+        
+        .footer-grid {
+            display: grid;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+            color: var(--primary-light);
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            line-height: 1.8;
+            font-size: 0.9375rem;
+        }
+        
+        .footer-section a:hover {
+            color: var(--primary-light);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            font-size: 0.875rem;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 767px) {
+            .hero-badges {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            
+            .hero-badge {
+                align-items: center;
+                width: auto;
+                min-width: 200px;
+            }
+            
+            .cta-buttons {
+                width: 100%;
+            }
+            
+            .cta-buttons .btn {
+                width: 100%;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 4rem;
+            }
+            
+            .hero-content {
+                padding: 10rem 3rem 4rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: row;
+            }
+            
+            .offer-highlight h2 {
+                font-size: 2.5rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .specialties-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            h1 {
+                font-size: 5rem;
+            }
+            
+            .hero-content {
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+            
+            .section-title {
+                font-size: 2.75rem;
+            }
+            
+            .specialties-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .steps-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .cta-banner h2 {
+                font-size: 3rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PJ2KCM3C"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="sevensaude_logo.webp" alt="Seven Saúde" style="width: 160px; height: auto;">
+            </div>
+            <a href="https://seven-saude.com/planos" class="btn btn-header btn-gold">Garantir presente</a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="imagem_2.webp" alt="Presente de Natal">
+        </div>
+        
+        <div class="hero-content">
+            <div class="christmas-badge">
+                🎁 Presente de Natal
+            </div>
+            
+            <h1>
+                O melhor presente<br>
+                é <span class="gradient-text-primary">cuidar de você.</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                Neste Natal, a Seven Saúde te dá um presente de verdade: sua primeira consulta com médicos, psicólogos ou nutricionistas é por nossa conta.
+            </p>
+            
+            <div class="offer-highlight">
+                <h2>🎁 Primeira consulta GRÁTIS</h2>
+                <p>
+                    Escolha entre mais de 35 especialidades médicas, psicologia ou nutrição. Você não paga nada pela primeira consulta.
+                </p>
+                <p class="small-text">
+                    ⏰ Oferta válida apenas em dezembro de 2025
+                </p>
+            </div>
+            
+            <div class="hero-badges">
+                <div class="hero-badge">
+                    <span class="stars">★★★★★</span>
+                    <span>Satisfação Nota 9 de 10</span>
+                </div>
+                <div class="hero-badge">
+                    <span>+20 milhões</span>
+                    <span class="badge-detail">de pacientes atendidos</span>
+                </div>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="https://seven-saude.com/planos" class="btn btn-large btn-gold">
+                    Ganhar minha consulta grátis
+                </a>
+                <a href="https://seven-saude.com/planos" class="btn btn-outline btn-large">
+                    Ver mais benefícios
+                </a>
+            </div>
+            
+            <div class="urgency-note">
+                ⏰ Oferta válida até 31 de dezembro
+            </div>
+        </div>
+    </section>
+
+    <!-- OFFER DETAILS -->
+    <section class="offer-details">
+        <div class="offer-details-content">
+            <div class="section-badge">O que está incluído</div>
+            
+            <h2>Escolha como quer usar seu presente</h2>
+            <p class="offer-details-intro">
+                Sua primeira consulta é grátis em qualquer uma dessas áreas. Você decide o que é prioridade para você agora.
+            </p>
+            
+            <div class="specialties-grid">
+                <div class="specialty-card">
+                    <div class="specialty-icon">🩺</div>
+                    <h3>35+ Especialidades Médicas</h3>
+                    <p>Consulta gratuita com especialistas qualificados:</p>
+                    <ul class="specialty-list">
+                        <li>Clínica geral</li>
+                        <li>Cardiologia</li>
+                        <li>Dermatologia</li>
+                        <li>Pediatria</li>
+                        <li>Ginecologia</li>
+                        <li>E mais 30 especialidades</li>
+                    </ul>
+                </div>
+                
+                <div class="specialty-card">
+                    <div class="specialty-icon">🧠</div>
+                    <h3>Psicologia</h3>
+                    <p>Primeira sessão grátis com psicólogo:</p>
+                    <ul class="specialty-list">
+                        <li>Atendimento humanizado</li>
+                        <li>Profissionais qualificados</li>
+                        <li>Várias abordagens terapêuticas</li>
+                        <li>Agendamento em até 7 dias</li>
+                        <li>100% online, de onde estiver</li>
+                    </ul>
+                </div>
+                
+                <div class="specialty-card">
+                    <div class="specialty-icon">🥗</div>
+                    <h3>Nutrição</h3>
+                    <p>Consulta gratuita com nutricionista:</p>
+                    <ul class="specialty-list">
+                        <li>Plano alimentar personalizado</li>
+                        <li>Orientação profissional</li>
+                        <li>Acompanhamento evolutivo</li>
+                        <li>Relatórios clínicos</li>
+                        <li>Curadoria de profissionais</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">⏱</div>
+                <div class="stat-number">Sem filas</div>
+                <div class="stat-label">Até 7 min para ser atendido no<br>Pronto Atendimento</div>
+                <div class="stat-note">*Tempo médio de espera. Pode variar.</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">📅</div>
+                <div class="stat-number">2 a 5 dias</div>
+                <div class="stat-label">para consulta com especialista<br>ou até antes com encaixe</div>
+                <div class="stat-note">*Consulte disponibilidade de horários.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works">
+        <h2 class="section-title">Como funciona</h2>
+        <p class="section-subtitle">Simples, rápido e sem burocracia</p>
+        
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Ative sua conta</h3>
+                <p>Cadastre-se gratuitamente e escolha o plano que combina com você. Teste grátis por 7 dias.</p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Agende sua consulta</h3>
+                <p>Escolha entre médico, psicólogo ou nutricionista. Agende em poucos cliques pelo app ou site.</p>
+            </div>
+            
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Sua primeira consulta é grátis</h3>
+                <p>Seja atendido por profissionais qualificados sem pagar nada. O presente é nosso para você.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+        <h2 class="section-title" style="color: white; text-align: center; margin-bottom: 0.5rem;">
+            E tem muito mais
+        </h2>
+        <p class="section-subtitle" style="color: rgba(255,255,255,0.7); text-align: center;">
+            Depois da primeira consulta grátis, você continua com benefícios incríveis
+        </p>
+        
+        <div class="cards-grid">
+            <div class="feature-card">
+                <img src="imagem_3.webp" alt="Telemedicina">
+                <div class="feature-card-overlay"></div>
+                <div class="feature-card-content">
+                    <span class="card-badge">Telemedicina</span>
+                    <h3>Médicos sempre disponíveis</h3>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <img src="imagem_5.webp" alt="Desconto Farmácia">
+                <div class="feature-card-overlay"></div>
+                <div class="feature-card-content">
+                    <span class="card-badge">Economia</span>
+                    <h3>Desconto na farmácia a partir de 20%</h3>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <img src="imagem_6.webp" alt="Seven PLUS">
+                <div class="feature-card-overlay"></div>
+                <div class="feature-card-content">
+                    <span class="card-badge">Seven PLUS</span>
+                    <h3>Fitness, jurídico e mais benefícios</h3>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <img src="imagem_4.webp" alt="Saúde Mental">
+                <div class="feature-card-overlay"></div>
+                <div class="feature-card-content">
+                    <span class="card-badge">Bem-estar</span>
+                    <h3>Cuidado contínuo com sua saúde</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <h2 class="section-title" style="text-align: center; margin-bottom: 1rem;">
+            Mais de 20 milhões de pacientes
+        </h2>
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <div class="stars" style="font-size: 1.5rem; color: #FFB800;">★★★★★</div>
+            <p style="margin-top: 0.5rem; font-weight: 600; color: var(--darker);">Nota 9 de 10</p>
+        </div>
+        
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+                "Realizo as sessões com a psicóloga Victoria e gosto muito da praticidade do atendimento online. Posso me cuidar de onde estiver, com tranquilidade e segurança. Tem sido essencial para meu bem-estar!"
+            </p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar">AR</div>
+                <div>
+                    <div class="testimonial-name">Ana Beatriz Rodrigues</div>
+                    <div class="testimonial-location">Paciente</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+                "Ter acesso a esse tipo de cuidado digital transformou a minha relação com a minha saúde e tornou muito mais fácil manter meus cuidados em dia."
+            </p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar">ME</div>
+                <div>
+                    <div class="testimonial-name">Matheus Esteves</div>
+                    <div class="testimonial-location">Paciente</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PARCERIA CONEXA -->
+        <div style="margin-top: 4rem; padding: 3rem 2rem; background: white; border-radius: 24px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+            <p style="font-size: 1.125rem; color: #666; margin-bottom: 2rem; line-height: 1.6;">
+                A Seven Saúde é parceira da <strong style="color: var(--darker);">Conexa</strong>,<br>
+                a maior e melhor plataforma de telemedicina do mercado.
+            </p>
+            <div style="display: flex; justify-content: center; align-items: center; min-height: 80px;">
+                <img src="logo_conexa.webp" alt="Conexa Saúde" style="max-width: 200px; height: auto;">
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+        <div class="countdown">⏰ Válido apenas em dezembro de 2025</div>
+        <h2>Não perca seu presente de Natal</h2>
+        <p>
+            Ganhe sua primeira consulta grátis.<br>
+            Médicos, psicólogos ou nutricionistas. A escolha é sua.
+        </p>
+        <a href="https://seven-saude.com/planos" class="btn btn-large">
+            Garantir minha consulta grátis
+        </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4>Seven Saúde</h4>
+                <p>
+                    Saúde de qualidade que cabe no seu bolso. Parte do Grupo Seventech.
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Links</h4>
+                <ul class="footer-links">
+                    <li><a href="https://seven-saude.com/planos">Planos</a></li>
+                    <li><a href="#">Como funciona</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Para empresas</h4>
+                <p>Quer oferecer Seven Saúde para seu time?</p>
+                <a href="https://wa.me/551931996408?text=Saber%20mais%20sobre%20Seven%20Sa%C3%BAde%20para%20EMPRESAS" target="_blank" rel="noopener noreferrer" class="btn" style="margin-top: 1rem; display: inline-block; font-size: 0.875rem; padding: 0.75rem 1.5rem;">Fale conosco</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            2025 Copyright © Seventech | Todos os direitos reservados<br>
+            Desenvolvido com ♥ por Seventech
+        </div>
+    </footer>
+</body>
+</html>

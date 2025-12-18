@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seven Saúde | Saúde de verdade que seu time merece</title>
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PJ2KCM3C');</script>
+    <!-- End Google Tag Manager -->
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #24a8a0;
+            --primary-light: #3fc0b8;
+            --primary-dark: #1a7a74;
+            --accent: #7C3AED;
+            --accent-light: #9F67FF;
+            --dark: #2A3F54;
+            --darker: #1A2332;
+            --red: #DC2626;
+            --red-light: #EF4444;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: white;
+            background: #000;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 1.5rem;
+            background: rgba(26, 35, 50, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(36, 168, 160, 0.2);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            height: 32px;
+        }
+        
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 1.75rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            text-decoration: none;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(36, 168, 160, 0.4);
+        }
+        
+        .btn-large {
+            padding: 1.25rem 2.5rem;
+            font-size: 1.125rem;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: rgba(36, 168, 160, 0.1);
+            box-shadow: none;
+        }
+        
+        .btn-header {
+            padding: 0.5rem 1rem;
+            font-size: 0.8125rem;
+        }
+        
+        /* HERO */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--dark);
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+        
+        .hero-bg > div,
+        .hero-bg > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 35, 50, 0.85) 0%, rgba(42, 63, 84, 0.75) 100%);
+            z-index: 2;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            padding: 8rem 1.5rem 3rem;
+            width: 100%;
+        }
+        
+        .hero-badges {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.125rem;
+            background: rgba(36, 168, 160, 0.08);
+            backdrop-filter: blur(20px);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            border: 1px solid rgba(36, 168, 160, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .hero-badge:hover {
+            background: rgba(36, 168, 160, 0.12);
+            border-color: rgba(36, 168, 160, 0.3);
+        }
+        
+        .badge-detail {
+            font-size: 0.6875rem;
+            opacity: 0.85;
+            font-weight: 400;
+        }
+        
+        .stars {
+            color: #FFB800;
+            font-size: 0.8125rem;
+            letter-spacing: 0.05em;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            letter-spacing: -0.02em;
+        }
+        
+        .subtitle {
+            font-size: 1.375rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            color: rgba(255,255,255,0.85);
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-cta {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .social-proof {
+            text-align: center;
+            font-size: 0.9375rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* PROBLEM SECTION - NOVA */
+        .problem-section {
+            background: linear-gradient(135deg, #1A2332 0%, #2A1A2E 100%);
+            padding: 5rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .problem-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(220, 38, 38, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+        
+        .problem-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .problem-badge {
+            display: inline-block;
+            background: rgba(220, 38, 38, 0.15);
+            color: var(--red-light);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(220, 38, 38, 0.3);
+        }
+        
+        .problem-title {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .problem-title .highlight {
+            color: var(--red-light);
+        }
+        
+        .problem-description {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2.5rem;
+        }
+        
+        .problem-stat {
+            display: inline-block;
+            background: rgba(36, 168, 160, 0.08);
+            padding: 1.5rem 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(36, 168, 160, 0.2);
+            margin-bottom: 2rem;
+        }
+        
+        .problem-stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        
+        .problem-stat-text {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* VISUAL CARDS */
+        .visual-cards {
+            padding: 5rem 1.5rem;
+            background: #000;
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .card-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.375rem 0.875rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* SAME QUALITY ACCESSIBLE */
+        .same-quality {
+            background: white;
+            padding: 5rem 1.5rem;
+        }
+        
+        .same-quality-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .section-badge {
+            display: inline-block;
+            background: rgba(36, 168, 160, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin: 0 auto 2rem;
+            display: block;
+            width: fit-content;
+        }
+        
+        .section-title {
+            font-size: 2.75rem;
+            line-height: 1.2;
+            color: var(--darker);
+            margin-bottom: 1rem;
+        }
+        
+        .partners-image {
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .partners-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 16px;
+        }
+        
+        /* BENEFITS */
+        .benefits {
+            background: var(--darker);
+            padding: 5rem 1.5rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 3.5rem;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .benefit-card {
+            background: rgba(255,255,255,0.03);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(36, 168, 160, 0.3);
+            transform: translateY(-4px);
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.375rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary-light);
+        }
+        
+        .benefit-card p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+        }
+        
+        /* TESTIMONIALS */
+        .testimonials {
+            background: #f8f9fa;
+            padding: 5rem 1.5rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        
+        .testimonial-stars {
+            color: #FFB800;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-text {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1.0625rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9375rem;
+        }
+        
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--darker);
+            margin-bottom: 0.25rem;
+        }
+        
+        .testimonial-location {
+            font-size: 0.875rem;
+            color: #999;
+        }
+        
+        /* CTA BANNER */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--accent) 100%);
+            padding: 5rem 1.5rem;
+            text-align: center;
+        }
+        
+        .cta-banner h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-banner p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--darker);
+            padding: 4rem 1.5rem 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+        
+        .footer-section h4 {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            color: var(--primary-light);
+        }
+        
+        .footer-section p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.6;
+            font-size: 0.9375rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-light);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            font-size: 0.875rem;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.125rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .problem-title {
+                font-size: 1.875rem;
+            }
+            
+            .problem-description {
+                font-size: 1.0625rem;
+            }
+            
+            .problem-stat-number {
+                font-size: 2.25rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn-large {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PJ2KCM3C"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="sevensaude_logo.webp" alt="Seven Saúde">
+            </div>
+            <a href="https://seven-saude.com/planos-empresas" class="btn btn-header">Conta teste</a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="imagem_2.webp" alt="Seven Saúde - Saúde corporativa">
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-badges">
+                <div class="hero-badge">
+                    <div class="stars">★★★★★</div>
+                    <div class="badge-detail">Nota 9 de 10</div>
+                </div>
+                <div class="hero-badge">
+                    <strong>+3.000</strong>
+                    <div class="badge-detail">empresas atendidas</div>
+                </div>
+                <div class="hero-badge">
+                    <strong>90% mais barato</strong>
+                    <div class="badge-detail">vs. planos tradicionais</div>
+                </div>
+            </div>
+            
+            <h1>
+                Saúde de verdade<br>
+                <span style="color: #FFD700;">que seu time merece</span>
+            </h1>
+            
+            <p class="subtitle">
+                O benefício que reduz turnover, aumenta produtividade e cabe no seu orçamento. Saúde completa para seus colaboradores com investimento 90% menor.
+            </p>
+            
+            <div class="hero-cta">
+                <a href="https://seven-saude.com/planos-empresas" class="btn btn-large">
+                    Teste você mesmo agora
+                </a>
+            </div>
+            
+            <p class="social-proof">
+                7 dias grátis • Sem compromisso • Experimente a qualidade
+            </p>
+        </div>
+    </section>
+
+    <!-- PROBLEM SECTION - NOVA -->
+    <section class="problem-section">
+        <div class="problem-content">
+            <div class="problem-badge">⚠️ Alerta urgente</div>
+            
+            <h2 class="problem-title">
+                Seus colaboradores vão sair em 2026,<br>
+                <span class="highlight">e você precisa agir rápido</span>
+            </h2>
+            
+            <p class="problem-description">
+                Pesquisas do Serasa mostram que a <strong>principal motivação</strong> para os funcionários de pequenas e médias empresas saírem é a busca por <strong>melhores benefícios, principalmente em saúde e bem-estar</strong>.
+            </p>
+            
+            <div class="problem-stat">
+                <div class="problem-stat-number">90%</div>
+                <div class="problem-stat-text">mais barato que planos tradicionais</div>
+            </div>
+            
+            <p class="problem-description">
+                Sua oportunidade de reter mais talentos, com um investimento que cabe no seu orçamento, está aqui. <strong>Comece testando você mesmo</strong> e veja a qualidade que seus colaboradores vão ter acesso.
+            </p>
+            
+            <a href="https://seven-saude.com/planos-empresas" class="btn btn-large">
+                Quero testar pessoalmente
+            </a>
+        </div>
+    </section>
+
+    <!-- VISUAL CARDS -->
+    <section class="visual-cards">
+        <div class="cards-grid">
+            <div style="position: relative; height: 380px; border-radius: 20px; overflow: hidden; background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);">
+                <img src="imagem_2.webp" alt="Consultas Online" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.9) 100%); z-index: 2;"></div>
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 1.5rem; color: white; z-index: 3;">
+                    <span class="card-badge">Telemedicina</span>
+                    <h3 style="font-size: 1.75rem; line-height: 1.3; margin-top: 0.75rem;">+35 especialidades médicas disponíveis</h3>
+                </div>
+            </div>
+            
+            <div style="position: relative; height: 380px; border-radius: 20px; overflow: hidden; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);">
+                <img src="imagem_3.webp" alt="Exames" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.9) 100%); z-index: 2;"></div>
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 1.5rem; color: white; z-index: 3;">
+                    <span class="card-badge">Exames</span>
+                    <h3 style="font-size: 1.75rem; line-height: 1.3; margin-top: 0.75rem;">Até 70% de desconto em exames laboratoriais</h3>
+                </div>
+            </div>
+            
+            <div style="position: relative; height: 380px; border-radius: 20px; overflow: hidden; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);">
+                <img src="imagem_4.webp" alt="Saúde Mental" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.9) 100%); z-index: 2;"></div>
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 1.5rem; color: white; z-index: 3;">
+                    <span class="card-badge">Saúde mental</span>
+                    <h3 style="font-size: 1.75rem; line-height: 1.3; margin-top: 0.75rem;">Psicólogos e nutricionistas qualificados</h3>
+                </div>
+            </div>
+            
+            <div style="position: relative; height: 380px; border-radius: 20px; overflow: hidden; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);">
+                <img src="imagem_5.webp" alt="Desconto Farmácia" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.9) 100%); z-index: 2;"></div>
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 1.5rem; color: white; z-index: 3;">
+                    <span class="card-badge">Economia</span>
+                    <h3 style="font-size: 1.75rem; line-height: 1.3; margin-top: 0.75rem;">Desconto a partir de 20% em farmácias</h3>
+                </div>
+            </div>
+            
+            <div style="position: relative; height: 380px; border-radius: 20px; overflow: hidden; background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);">
+                <img src="imagem_6.webp" alt="Seven PLUS" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.9) 100%); z-index: 2;"></div>
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 1.5rem; color: white; z-index: 3;">
+                    <span class="card-badge">Seven PLUS</span>
+                    <h3 style="font-size: 1.75rem; line-height: 1.3; margin-top: 0.75rem;">Fitness, jurídico, financeiro e mais</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SAME QUALITY ACCESSIBLE -->
+    <section class="same-quality">
+        <div class="same-quality-content">
+            <div class="section-badge">Mesma qualidade</div>
+            
+            <h2 class="section-title" style="text-align: center; margin-bottom: 1rem;">
+                <span style="color: #000000;">A telemedicina dos grandes planos.</span><br>
+                <span style="background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Agora acessível para sua empresa.</span>
+            </h2>
+            
+            <p style="text-align: center; font-size: 1.25rem; color: #666; margin-bottom: 3.5rem; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.7;">
+                Seus colaboradores não precisam esperar por grandes corporações para ter benefícios de qualidade. O mesmo padrão oferecido por empresas de grande porte agora está ao alcance da sua equipe.
+            </p>
+            
+            <div class="partners-image">
+                <img src="planos_saude.webp" alt="Telemedicina de qualidade acessível">
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="benefits">
+        <h2 class="section-title" style="text-align: center; margin-bottom: 0.5rem;">
+            Tudo que sua equipe precisa
+        </h2>
+        <p class="section-subtitle" style="text-align: center; color: rgba(255,255,255,0.7);">
+            Cuidado completo e especial com a saúde dos seus colaboradores
+        </p>
+        
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <h3>Consultas online</h3>
+                <p>Atendimento médico de qualidade quando seus colaboradores precisarem. Em até 7 dias, sem sair do trabalho ou de casa.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <h3>Saúde mental</h3>
+                <p>Psicólogos qualificados para cuidar do bem-estar emocional da sua equipe. Produtividade começa com saúde mental.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <h3>Nutrição personalizada</h3>
+                <p>Nutricionistas que orientam sua equipe com dietas personalizadas para cada objetivo. Saúde preventiva que funciona.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <h3>Desconto na farmácia</h3>
+                <p>A partir de 20% de desconto nas principais farmácias do Brasil. Economia real que seus colaboradores vão sentir todo mês.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <h3>Academia em casa</h3>
+                <p>App com treinos para fazer em casa ou onde quiser. Mais de 8 tipos diferentes. Equipe ativa, equipe produtiva.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <h3>Ajuda jurídica</h3>
+                <p>Advogados para tirar dúvidas e resolver problemas do dia a dia. Suporte que traz tranquilidade para sua equipe.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <h2 class="section-title" style="text-align: center; margin-bottom: 1rem;">
+            Mais de 20 milhões de pacientes atendidos
+        </h2>
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <div class="stars" style="font-size: 1.5rem; color: #FFB800;">★★★★★</div>
+            <p style="margin-top: 0.5rem; font-weight: 600; color: var(--darker);">Nota 9 de 10</p>
+        </div>
+        
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+                "Realizo as sessões com a psicóloga Victoria e gosto muito da praticidade do atendimento online. Posso me cuidar de onde estiver, com tranquilidade e segurança. A plataforma é simples de utilizar além de facilitar a minha rotina. Tem sido essencial para meu bem-estar!"
+            </p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar">AR</div>
+                <div>
+                    <div class="testimonial-name">Ana Beatriz Rodrigues</div>
+                    <div class="testimonial-location">Usuária Seven Saúde</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+                "Ter acesso a esse tipo de cuidado digital transformou a minha relação com a minha saúde e tornou muito mais fácil manter meus cuidados em dia."
+            </p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar">ME</div>
+                <div>
+                    <div class="testimonial-name">Matheus Esteves</div>
+                    <div class="testimonial-location">Usuário Seven Saúde</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+                "Fui cativada pela qualidade assistencial e pelo robusto suporte de gestão. Tecnologia de ponta, protocolos sólidos e um time clínico de excelência. É uma satisfação fazer parte da história da Conexa."
+            </p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar">AC</div>
+                <div>
+                    <div class="testimonial-name">Dra. Ana Luísa</div>
+                    <div class="testimonial-location">Médica parceira</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PARCERIA CONEXA -->
+        <div style="margin-top: 4rem; padding: 3rem 2rem; background: white; border-radius: 24px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+            <p style="font-size: 1.125rem; color: #666; margin-bottom: 2rem; line-height: 1.6;">
+                A Seven Saúde é parceira da <strong style="color: var(--darker);">Conexa</strong>,<br>
+                a maior e melhor plataforma de telemedicina do mercado.
+            </p>
+            <div style="display: flex; justify-content: center; align-items: center; min-height: 80px;">
+                <img src="logo_conexa.webp" alt="Conexa Saúde" style="max-width: 200px; height: auto;">
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+        <h2>Teste você mesmo. Veja a qualidade.</h2>
+        <p>
+            Crie sua conta teste gratuita por 7 dias.<br>
+            Experimente todos os benefícios que sua equipe terá acesso.<br>
+            Cancele quando quiser. Zero burocracia.
+        </p>
+        <a href="https://seven-saude.com/planos-empresas" class="btn btn-large" style="background: white; color: var(--primary);">
+            Criar minha conta teste agora
+        </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4>Seven Saúde</h4>
+                <p>
+                    Saúde de qualidade que cabe no orçamento da sua empresa. Parte do Grupo Seventech.
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Links</h4>
+                <ul class="footer-links">
+                    <li><a href="https://seven-saude.com/planos-empresas">Planos Empresariais</a></li>
+                    <li><a href="#">Como funciona</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Atendimento Empresas</h4>
+                <p>Quer saber mais sobre Seven Saúde para sua empresa?</p>
+                <a href="https://wa.me/5519991154315?text=Quero%20saber%20mais%20sobre%20Seven%20Sa%C3%BAde%20para%20minha%20EMPRESA" target="_blank" rel="noopener noreferrer" class="btn" style="margin-top: 1rem; display: inline-block; font-size: 0.875rem; padding: 0.75rem 1.5rem;">Fale com especialista</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Seven Saúde • Grupo Seventech • Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+</body>
+</html>
