@@ -37,6 +37,56 @@
             -webkit-font-smoothing: antialiased;
         }
         
+        /* LOADER STYLES */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 35, 50, 0.98);
+            backdrop-filter: blur(8px);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .page-loader.active {
+            display: flex;
+            animation: fadeIn 0.3s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        .loader-content {
+            text-align: center;
+        }
+        
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 1.5rem;
+            border: 3px solid rgba(36, 168, 160, 0.2);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .loader-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9375rem;
+            font-weight: 500;
+        }
+        
         /* HEADER */
         header {
             position: fixed;
@@ -77,6 +127,7 @@
             font-size: 0.9375rem;
             transition: all 0.3s ease;
             border: none;
+            cursor: pointer;
         }
         
         .btn:hover {
@@ -694,13 +745,21 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+    <!-- PAGE LOADER -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">Carregando...</div>
+        </div>
+    </div>
+
     <!-- HEADER -->
     <header>
         <div class="header-content">
             <div class="logo">
                 <img src="sevensaude_logo.webp" alt="Seven Saúde" style="width: 160px; height: auto;">
             </div>
-            <a href="https://app.seventechoficial.com/planos" class="btn btn-header">Teste grátis</a>
+            <a href="https://seven-saude.com/planos" class="btn btn-header">Teste grátis</a>
         </div>
     </header>
 
@@ -732,10 +791,10 @@
             </div>
             
             <div class="cta-buttons">
-                <a href="https://app.seventechoficial.com/planos" class="btn btn-large">
+                <a href="https://seven-saude.com/planos" class="btn btn-large">
                     Teste grátis por 7 dias
                 </a>
-                <a href="https://app.seventechoficial.com/planos" class="btn btn-outline btn-large">
+                <a href="https://seven-saude.com/planos" class="btn btn-outline btn-large">
                     Ver planos
                 </a>
             </div>
@@ -938,7 +997,7 @@
             7 dias grátis.<br>
             Cancele quando quiser. Zero burocracia.
         </p>
-        <a href="https://app.seventechoficial.com/planos" class="btn btn-large">
+        <a href="https://seven-saude.com/planos" class="btn btn-large">
             Quero mais saúde
         </a>
     </section>
@@ -956,7 +1015,7 @@
             <div class="footer-section">
                 <h4>Links</h4>
                 <ul class="footer-links">
-                    <li><a href="https://app.seventechoficial.com/planos">Planos</a></li>
+                    <li><a href="https://seven-saude.com/planos">Planos</a></li>
                     <li><a href="#">Como funciona</a></li>
                     <li><a href="#">Blog</a></li>
                 </ul>
@@ -969,4 +1028,48 @@
             </div>
         </div>
         
-        <div class=
+        <div class="footer-bottom">
+            <p>© 2025 Seven Saúde. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- LOADER SCRIPT -->
+    <script>
+        // Detect outbound links and show loader
+        document.addEventListener('DOMContentLoaded', function() {
+            const loader = document.getElementById('pageLoader');
+            const currentDomain = window.location.hostname;
+            
+            // Get all links
+            const links = document.querySelectorAll('a[href]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Skip if it's a hash link or javascript
+                    if (!href || href.startsWith('#') || href.startsWith('javascript:')) {
+                        return;
+                    }
+                    
+                    // Check if it's an external link
+                    let isExternal = false;
+                    try {
+                        const linkUrl = new URL(href, window.location.origin);
+                        isExternal = linkUrl.hostname !== currentDomain;
+                    } catch (e) {
+                        // If URL parsing fails, it's probably a relative link
+                        isExternal = false;
+                    }
+                    
+                    // Show loader for external links
+                    if (isExternal) {
+                        // Don't prevent default - let the link work normally
+                        loader.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
