@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seven Saúde | Saúde de verdade ao seu alcance</title>
+    <link rel="icon" type="image/webp" href="favicon.webp">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PJ2KCM3C');</script>
+    <!-- End Google Tag Manager -->
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #24a8a0;
+            --primary-light: #3fc0b8;
+            --primary-dark: #1a7a74;
+            --accent: #7C3AED;
+            --accent-light: #9F67FF;
+            --dark: #2A3F54;
+            --darker: #1A2332;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: white;
+            background: #000;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* LOADER STYLES */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 35, 50, 0.98);
+            backdrop-filter: blur(8px);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .page-loader.active {
+            display: flex;
+            animation: fadeIn 0.3s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        .loader-content {
+            text-align: center;
+        }
+        
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 1.5rem;
+            border: 3px solid rgba(36, 168, 160, 0.2);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .loader-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9375rem;
+            font-weight: 500;
+        }
+        
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 1.5rem;
+            background: rgba(26, 35, 50, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(36, 168, 160, 0.2);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 1.75rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            text-decoration: none;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(36, 168, 160, 0.4);
+        }
+        
+        .btn-large {
+            padding: 1.25rem 2.5rem;
+            font-size: 1.125rem;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: rgba(36, 168, 160, 0.1);
+            box-shadow: none;
+        }
+        
+        .btn-header {
+            padding: 0.625rem 1.25rem;
+            font-size: 0.875rem;
+        }
+        
+        /* HERO */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--dark);
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+        
+        .hero-bg > div,
+        .hero-bg > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 35, 50, 0.85) 0%, rgba(42, 63, 84, 0.75) 100%);
+            z-index: 2;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            padding: 8rem 1.5rem 3rem;
+            width: 100%;
+        }
+        
+        .hero-badges {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.125rem;
+            background: rgba(36, 168, 160, 0.08);
+            backdrop-filter: blur(20px);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            border: 1px solid rgba(36, 168, 160, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .hero-badge:hover {
+            background: rgba(36, 168, 160, 0.12);
+            border-color: rgba(36, 168, 160, 0.3);
+        }
+        
+        .badge-detail {
+            font-size: 0.6875rem;
+            opacity: 0.85;
+            font-weight: 400;
+        }
+        
+        .stars {
+            color: #FFB800;
+            font-size: 0.8125rem;
+            letter-spacing: 0.05em;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.125rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .trial-note {
+            display: inline-block;
+            color: var(--primary-light);
+            font-size: 0.875rem;
+            margin-top: 1rem;
+        }
+        
+        /* STATS */
+        .stats {
+            background: #fafafa;
+            padding: 3rem 1.5rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+            border: 1px solid rgba(36, 168, 160, 0.3);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(36, 168, 160, 0.1), transparent);
+        }
+        
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-label {
+            font-size: 1.25rem;
+            line-height: 1.4;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+        
+        .stat-note {
+            font-size: 0.9375rem;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        /* FEATURES */
+        .features {
+            padding: 4rem 1.5rem;
+            background: white;
+            color: var(--darker);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #666;
+            margin-bottom: 3rem;
+        }
+        
+        /* HORIZONTAL SCROLL */
+        .cards-scroll {
+            display: flex;
+            gap: 1.25rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 0 1.5rem 1rem;
+            margin: 0 -1.5rem;
+            scrollbar-width: none;
+        }
+        
+        .cards-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .scroll-card {
+            flex: 0 0 280px;
+            height: 380px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            scroll-snap-align: start;
+        }
+        
+        .scroll-card-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.9) 100%);
+        }
+        
+        .scroll-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem 1.5rem;
+        }
+        
+        .card-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.375rem 0.875rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            margin-bottom: 0.75rem;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .scroll-card h3 {
+            font-size: 1.375rem;
+            line-height: 1.3;
+        }
+        
+        /* SPECIALTIES SECTION */
+        .specialties {
+            padding: 6rem 1.5rem;
+            background: var(--darker);
+        }
+        
+        .specialties-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .specialties-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .specialties-badge {
+            display: inline-block;
+            background: rgba(36, 168, 160, 0.15);
+            color: var(--primary);
+            padding: 0.5rem 1.25rem;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(36, 168, 160, 0.3);
+        }
+        
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .specialty-category {
+            background: var(--dark);
+            border: 1px solid rgba(36, 168, 160, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .specialty-category:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+        }
+        
+        .specialty-icon {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+        
+        .specialty-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .specialty-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+        
+        .specialty-item {
+            background: rgba(36, 168, 160, 0.1);
+            color: var(--primary-light);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            border: 1px solid rgba(36, 168, 160, 0.2);
+        }
+        
+        .specialty-more {
+            display: block;
+            margin-top: 1.5rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.875rem;
+            font-style: italic;
+        }
+        
+        .specialties-cta {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--dark);
+            border-radius: 20px;
+            border: 1px solid rgba(36, 168, 160, 0.2);
+        }
+        
+        .specialties-cta-text {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .btn-specialties {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-specialties:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(36, 168, 160, 0.3);
+        }
+        
+        .btn-arrow {
+            font-size: 1.25rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .btn-specialties:hover .btn-arrow {
+            transform: translateX(4px);
+        }
+        
+        @media (max-width: 768px) {
+            .specialties {
+                padding: 4rem 1.5rem;
+            }
+            
+            .specialties-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .specialties-cta-text {
+                font-size: 1.125rem;
+            }
+        }
+        
+        /* SAME QUALITY SECTION */
+        .same-quality {
+            padding: 3rem 1.5rem 6rem;
+            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+        }
+        
+        .same-quality-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin: 0 auto 0.5rem;
+            text-align: center;
+            display: block;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .partners-image {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .partners-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .partners-image img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(0,0,0,0.15);
+        }
+        
+        /* BENEFITS GRID */
+        .benefits {
+            padding: 4rem 1.5rem;
+            background: var(--darker);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .benefit-card {
+            background: var(--dark);
+            border: 1px solid rgba(36, 168, 160, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+        
+        .benefit-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.375rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary-light);
+        }
+        
+        .benefit-card p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.6;
+        }
+        
+        /* TESTIMONIALS */
+        .testimonials {
+            padding: 4rem 1.5rem;
+            background: #fafafa;
+            color: var(--darker);
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        
+        .testimonial-stars {
+            color: #FFB800;
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-text {
+            font-size: 1.0625rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: var(--darker);
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: white;
+        }
+        
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--darker);
+        }
+        
+        .testimonial-location {
+            font-size: 0.875rem;
+            color: #666;
+        }
+        
+        /* CTA BANNER */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--accent) 100%);
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+        
+        .cta-banner h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .cta-banner p {
+            font-size: 1.125rem;
+            margin-bottom: 2.5rem;
+            color: rgba(255,255,255,0.95);
+            line-height: 1.6;
+        }
+        
+        .cta-banner .btn {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .cta-banner .btn:hover {
+            background: rgba(255,255,255,0.95);
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--darker);
+            padding: 3rem 1.5rem 2rem;
+            border-top: 1px solid rgba(36, 168, 160, 0.2);
+        }
+        
+        .footer-grid {
+            display: grid;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+            color: var(--primary-light);
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            line-height: 1.8;
+            font-size: 0.9375rem;
+        }
+        
+        .footer-section a:hover {
+            color: var(--primary-light);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            font-size: 0.875rem;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 767px) {
+            .hero-badges {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            
+            .hero-badge {
+                align-items: center;
+            }
+            
+            .hero-badge {
+                width: auto;
+                min-width: 200px;
+            }
+            
+            .section-badge {
+                margin-bottom: 0.25rem !important;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            h1 {
+                font-size: 4rem;
+            }
+            
+            .hero-content {
+                padding: 10rem 3rem 4rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: row;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .features > div[style*="grid"] {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .same-quality {
+                padding: 7rem 2rem;
+            }
+            
+            .section-badge {
+                font-size: 0.9375rem;
+                padding: 0.625rem 1.5rem;
+            }
+            
+            .cta-banner {
+                padding: 5rem 2rem;
+            }
+            
+            .cta-banner h2 {
+                font-size: 2.5rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            h1 {
+                font-size: 5rem;
+            }
+            
+            .hero-content {
+                max-width: 1400px;
+                margin: 0 auto;
+            }
+            
+            .section-title {
+                font-size: 2.75rem;
+            }
+            
+            .features > div[style*="grid"] {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .same-quality {
+                padding: 8rem 3rem;
+            }
+            
+            .section-badge {
+                font-size: 1rem;
+                padding: 0.75rem 1.75rem;
+            }
+            
+            .cta-banner {
+                padding: 6rem 3rem;
+            }
+            
+            .cta-banner h2 {
+                font-size: 3rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PJ2KCM3C"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- PAGE LOADER -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">Carregando...</div>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="sevensaude_logo.webp" alt="Seven Saúde" style="width: 160px; height: auto;">
+            </div>
+            <a href="https://seven-saude.com/planos_trial" class="btn btn-header">Teste grátis</a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="imagem_2.webp" alt="">
+        </div>
+        
+        <div class="hero-content">
+            <h1>
+                Saúde de verdade.<br>
+                <span class="gradient-text">Ao seu alcance.</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                Médicos quando você precisa. Psicólogos de verdade. Nutricionistas que te entendem. Sem fila. Sem preço impossível.
+            </p>
+            
+            <div class="hero-badges">
+                <div class="hero-badge">
+                    <span class="stars">★★★★★</span>
+                    <span>Satisfação Nota 9 de 10</span>
+                </div>
+                <div class="hero-badge">
+                    <span>Economia de até 90%</span>
+                    <span class="badge-detail">vs planos de saúde</span>
+                </div>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="https://seven-saude.com/planos_trial" class="btn btn-large">
+                    Teste grátis por 7 dias
+                </a>
+                <a href="https://seven-saude.com/planos_trial" class="btn btn-outline btn-large">
+                    Ver planos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">⏱</div>
+                <div class="stat-number">Sem filas</div>
+                <div class="stat-label">Até 7 min para ser atendido no<br>Pronto Atendimento</div>
+                <div class="stat-note">*Tempo médio de espera. Pode variar.</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">📅</div>
+                <div class="stat-number">2 a 5 dias</div>
+                <div class="stat-label">para consulta com especialista<br>ou até antes com encaixe</div>
+                <div class="stat-note">*Consulte disponibilidade de horários.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES CARDS -->
+    <section class="features">
+        <h2 class="section-title">Cuidado completo quando você precisa</h2>
+        <p class="section-subtitle">Sem complicação. Sem burocracia. Só saúde de qualidade.</p>
+        
+        <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem; max-width: 1200px; margin: 0 auto;">
+            <div style="position: relative; height: 380px; border-radius: 20px; overflow: hidden; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);">
+                <img src="imagem_3.webp" alt="Telemedicina" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.9) 100%); z-index: 2;"></div>
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 1.5rem; color: white; z-index: 3;">
+                    <span class="card-badge">Telemedicina</span>
+                    <h3 style="font-size: 1.75rem; line-height: 1.3; margin-top: 0.75rem;">Mais de 35 especialidades médicas</h3>
+                </div>
+            </div>
+            
+            <div style="position: relative; height: 380px; border-radius: 20px; overflow: hidden; background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent) 100%);">
+                <img src="imagem_4.webp" alt="Saúde Mental" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.9) 100%); z-index: 2;"></div>
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 1.5rem; color: white; z-index: 3;">
+                    <span class="card-badge">Saúde mental</span>
+                    <h3 style="font-size: 1.75rem; line-height: 1.3; margin-top: 0.75rem;">Psicólogos e nutricionistas de verdade</h3>
+                </div>
+            </div>
+            
+            <div style="position: relative; height: 380px; border-radius: 20px; overflow: hidden; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);">
+                <img src="imagem_5.webp" alt="Desconto Farmácia" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.9) 100%); z-index: 2;"></div>
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 1.5rem; color: white; z-index: 3;">
+                    <span class="card-badge">Economia</span>
+                    <h3 style="font-size: 1.75rem; line-height: 1.3; margin-top: 0.75rem;">Desconto na farmácia a partir de 20%</h3>
+                </div>
+            </div>
+            
+            <div style="position: relative; height: 380px; border-radius: 20px; overflow: hidden; background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);">
+                <img src="imagem_6.webp" alt="Seven PLUS" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.9) 100%); z-index: 2;"></div>
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 1.5rem; color: white; z-index: 3;">
+                    <span class="card-badge">Seven PLUS</span>
+                    <h3 style="font-size: 1.75rem; line-height: 1.3; margin-top: 0.75rem;">Fitness, jurídico, financeiro e mais</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIALTIES SECTION -->
+    <section class="specialties">
+        <div class="specialties-content">
+            <div class="specialties-header">
+                <div class="specialties-badge">+35 especialidades médicas</div>
+                <h2 class="section-title">
+                    Médicos especialistas<br>
+                    <span class="gradient-text">quando você precisa</span>
+                </h2>
+                <p style="font-size: 1.125rem; color: rgba(255,255,255,0.8); margin-top: 1rem; line-height: 1.6; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Do clínico geral ao especialista. Cuidado completo para você e sua família, sem fila e sem complicação.
+                </p>
+            </div>
+            
+            <div class="specialties-grid">
+                <!-- CUIDADOS GERAIS -->
+                <div class="specialty-category">
+                    <span class="specialty-icon">🏥</span>
+                    <h3>Cuidados Gerais</h3>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9375rem; line-height: 1.6;">
+                        Para o dia a dia da sua saúde. Aquele médico que você precisa sempre.
+                    </p>
+                    <div class="specialty-list">
+                        <div class="specialty-item">Clínica Geral</div>
+                        <div class="specialty-item">Cardiologia</div>
+                        <div class="specialty-item">Endocrinologia</div>
+                        <div class="specialty-item">Gastroenterologia</div>
+                        <div class="specialty-item">Geriatria</div>
+                        <div class="specialty-item">Pneumologia</div>
+                    </div>
+                    <span class="specialty-more">e muito mais...</span>
+                </div>
+                
+                <!-- ESPECIALIDADES FOCALIZADAS -->
+                <div class="specialty-category">
+                    <span class="specialty-icon">🔬</span>
+                    <h3>Especialidades Focalizadas</h3>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9375rem; line-height: 1.6;">
+                        Quando você precisa de um olhar mais específico para sua saúde.
+                    </p>
+                    <div class="specialty-list">
+                        <div class="specialty-item">Neurologia</div>
+                        <div class="specialty-item">Urologia</div>
+                        <div class="specialty-item">Ginecologia</div>
+                        <div class="specialty-item">Ortopedia</div>
+                        <div class="specialty-item">Psiquiatria</div>
+                        <div class="specialty-item">Oftalmologia</div>
+                    </div>
+                    <span class="specialty-more">e muito mais...</span>
+                </div>
+                
+                <!-- PEDIATRIA -->
+                <div class="specialty-category">
+                    <span class="specialty-icon">👶</span>
+                    <h3>Pediatria Completa</h3>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9375rem; line-height: 1.6;">
+                        Cuidado especializado para os pequenos. Saúde infantil quando você precisa.
+                    </p>
+                    <div class="specialty-list">
+                        <div class="specialty-item">Pediatria Geral</div>
+                        <div class="specialty-item">Cardiologia Pediátrica</div>
+                        <div class="specialty-item">Dermatologia Pediátrica</div>
+                        <div class="specialty-item">Endocrinologia Pediátrica</div>
+                        <div class="specialty-item">Gastroenterologia Pediátrica</div>
+                        <div class="specialty-item">Hematologia Pediátrica</div>
+                    </div>
+                    <span class="specialty-more">e muito mais...</span>
+                </div>
+            </div>
+            
+            <div class="specialties-cta">
+                <p class="specialties-cta-text">
+                    E ainda tem muito mais.<br>
+                    <strong style="color: var(--primary-light);">Confira a lista completa de especialidades disponíveis.</strong>
+                </p>
+                <a href="https://app.seventechoficial.com/especialidades" target="_blank" rel="noopener noreferrer" class="btn btn-specialties">
+                    Ver todas as especialidades
+                    <span class="btn-arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SAME QUALITY ACCESSIBLE -->
+    <section class="same-quality">
+        <div class="same-quality-content">
+            <div class="section-badge">Mesma qualidade</div>
+            
+            <h2 class="section-title" style="text-align: center; margin-bottom: 1rem;">
+                <span style="color: #000000;">A telemedicina dos grandes planos.</span><br>
+                <span style="background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Agora acessível para todos.</span>
+            </h2>
+            
+            <p style="text-align: center; font-size: 1.25rem; color: #666; margin-bottom: 3.5rem; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.7;">
+                Você não precisa pagar planos caros. A mesma qualidade oferecida por essas grandes empresas está ao seu alcance. Agora você e sua família têm acesso.
+            </p>
+            
+            <div class="partners-image">
+                <img src="planos_saude.webp" alt="Telemedicina de qualidade acessível">
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="benefits">
+        <h2 class="section-title" style="text-align: center; margin-bottom: 0.5rem;">
+            Tudo que você precisa
+        </h2>
+        <p class="section-subtitle" style="text-align: center; color: rgba(255,255,255,0.7);">
+            Cuidado completo e especial com a saúde da sua família
+        </p>
+        
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <h3>Consultas online</h3>
+                <p>Médico de qualidade quando você precisar. Atendimento em até 7 dias, sem sair de casa ou pegar fila.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <h3>Saúde mental</h3>
+                <p>Psicólogos de verdade. Saúde mental não é luxo. Todo mundo precisa cuidar. E agora você consegue.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <h3>Nutrição personalizada</h3>
+                <p>Nutricionistas que montam uma dieta do seu jeito, para seus objetivos. Sem frescura, só orientação de quem entende.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <h3>Desconto na farmácia</h3>
+                <p>A partir de 20% de desconto nas principais farmácias do Brasil. Economia real todo mês.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <h3>Academia em casa</h3>
+                <p>App com treinos para fazer em casa, em qualquer lugar. Mais de 8 tipos diferentes. Sem precisar pagar academia.</p>
+            </div>
+            
+            <div class="benefit-card">
+                <h3>Ajuda jurídica</h3>
+                <p>Advogados para tirar suas dúvidas e resolver problemas do dia a dia. Aquela ajuda que você precisa mas não sabe onde procurar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <h2 class="section-title" style="text-align: center; margin-bottom: 1rem;">
+            Mais de 20 milhões de pacientes
+        </h2>
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <div class="stars" style="font-size: 1.5rem; color: #FFB800;">★★★★★</div>
+            <p style="margin-top: 0.5rem; font-weight: 600; color: var(--darker);">Nota 9 de 10</p>
+        </div>
+        
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+                "Realizo as sessões com a psicóloga Victoria e gosto muito da praticidade do atendimento online. Posso me cuidar de onde estiver, com tranquilidade e segurança. A plataforma é simples de utilizar além de facilitar a minha rotina. Tem sido essencial para meu bem-estar!"
+            </p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar">AR</div>
+                <div>
+                    <div class="testimonial-name">Ana Beatriz Rodrigues</div>
+                    <div class="testimonial-location">Paciente</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+                "Ter acesso a esse tipo de cuidado digital transformou a minha relação com a minha saúde e tornou muito mais fácil manter meus cuidados em dia."
+            </p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar">ME</div>
+                <div>
+                    <div class="testimonial-name">Matheus Esteves</div>
+                    <div class="testimonial-location">Paciente</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+                "Fui cativada pela qualidade assistencial e pelo robusto suporte de gestão. Tecnologia de ponta, protocolos sólidos e um time clínico de excelência. É uma satisfação fazer parte da história da Conexa."
+            </p>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar">AC</div>
+                <div>
+                    <div class="testimonial-name">Dra. Ana Luísa</div>
+                    <div class="testimonial-location">CRM-SP</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PARCERIA CONEXA -->
+        <div style="margin-top: 4rem; padding: 3rem 2rem; background: white; border-radius: 24px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+            <p style="font-size: 1.125rem; color: #666; margin-bottom: 2rem; line-height: 1.6;">
+                A Seven Saúde é parceira da <strong style="color: var(--darker);">Conexa</strong>,<br>
+                a maior e melhor plataforma de telemedicina do mercado.
+            </p>
+            <div style="display: flex; justify-content: center; align-items: center; min-height: 80px;">
+                <img src="logo_conexa.webp" alt="Conexa Saúde" style="max-width: 200px; height: auto;">
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+        <h2>Comece seu teste grátis hoje</h2>
+        <p>
+            7 dias grátis.<br>
+            Cancele quando quiser. Zero burocracia.
+        </p>
+        <a href="https://seven-saude.com/planos_trial" class="btn btn-large">
+            Quero mais saúde
+        </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-section">
+                <h4>Seven Saúde</h4>
+                <p>
+                    Saúde de qualidade que cabe no seu bolso. Parte do Grupo Seventech.
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Links</h4>
+                <ul class="footer-links">
+                    <li><a href="https://seven-saude.com/planos_trial">Planos</a></li>
+                    <li><a href="#">Como funciona</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Para empresas</h4>
+                <p>Quer oferecer Seven Saúde para seu time?</p>
+                <a href="https://wa.me/551931996408?text=Saber%20mais%20sobre%20Seven%20Sa%C3%BAde%20para%20EMPRESAS" target="_blank" rel="noopener noreferrer" class="btn" style="margin-top: 1rem; display: inline-block; font-size: 0.875rem; padding: 0.75rem 1.5rem;">Fale conosco</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Seven Saúde. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- LOADER SCRIPT -->
+    <script>
+        // Detect outbound links and show loader
+        document.addEventListener('DOMContentLoaded', function() {
+            const loader = document.getElementById('pageLoader');
+            const currentDomain = window.location.hostname;
+            
+            // Get all links
+            const links = document.querySelectorAll('a[href]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Skip if it's a hash link or javascript
+                    if (!href || href.startsWith('#') || href.startsWith('javascript:')) {
+                        return;
+                    }
+                    
+                    // Check if it's an external link
+                    let isExternal = false;
+                    try {
+                        const linkUrl = new URL(href, window.location.origin);
+                        isExternal = linkUrl.hostname !== currentDomain;
+                    } catch (e) {
+                        // If URL parsing fails, it's probably a relative link
+                        isExternal = false;
+                    }
+                    
+                    // Show loader for external links
+                    if (isExternal) {
+                        // Don't prevent default - let the link work normally
+                        loader.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
