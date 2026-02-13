@@ -154,18 +154,43 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+            max-width: 600px;
         }
 
-        .hero h1 {
-            font-size: 42px;
+        .hero-image-mobile {
+            display: block;
+        }
+
+        .hero-bg-desktop {
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-bg-desktop {
+                display: block;
+            }
+            .hero-bg-mobile {
+                display: none;
+            }
+            .hero-image-mobile {
+                display: none;
+            }
+            .hero-content {
+                text-align: left;
+                margin: 0;
+            }
         }
 
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 32px;
+                font-size: 28px;
+            }
+            .hero-content {
+                margin: 0 auto;
+                text-align: center;
+            }
+            .hero-buttons {
+                justify-content: center;
             }
         }
 
@@ -889,9 +914,16 @@
 
     <!-- Hero Section -->
     <section class="hero" style="padding: 80px 0 60px; position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);"></div>
-        <div class="container">
-            <div class="hero-content" style="position: relative; z-index: 2;">
+        <!-- Desktop: Full background image -->
+        <div class="hero-bg-desktop" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; display: none;">
+            <img src="images/nr1/hero-bg-desktop.webp" alt="Profissional confiante" style="width: 100%; height: 100%; object-fit: cover; object-position: center right;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(90deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.8) 50%, rgba(15, 23, 42, 0.3) 100%);"></div>
+        </div>
+        <!-- Mobile: Solid background -->
+        <div class="hero-bg-mobile" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);"></div>
+        
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="hero-content">
                 <div class="hero-badge">⚠️ Atualização 2026</div>
                 <h1>A Nova NR-1 Chegou: <span class="highlight">Sua Empresa Está Preparada</span> para a Fiscalização de 2026?</h1>
                 <p class="hero-subtitle">As mudanças de 2026 tornaram a fiscalização mais rigorosa. Agora, não basta ter documentos — é preciso <strong>provar</strong> que sua empresa implementou cada medida de segurança. E sim, <strong>saúde mental agora é obrigatória</strong>.</p>
@@ -900,8 +932,9 @@
                     <a href="#faq" class="btn btn-outline">Ver Perguntas Frequentes</a>
                 </div>
             </div>
-            <div class="hero-image" style="position: relative; z-index: 2; margin-top: 40px; text-align: center;">
-                <img src="images/nr1/hero-headshot.webp" alt="Profissional confiante - Seven Saúde" style="width: 280px; height: 280px; object-fit: cover; border-radius: 50%; border: 4px solid var(--primary); box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
+            <!-- Mobile only: Circular headshot -->
+            <div class="hero-image-mobile" style="margin-top: 40px; text-align: center;">
+                <img src="images/nr1/hero-headshot.webp" alt="Profissional confiante - Seven Saúde" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; border: 4px solid var(--primary); box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
             </div>
         </div>
     </section>
