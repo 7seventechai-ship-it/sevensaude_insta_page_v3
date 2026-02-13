@@ -384,6 +384,47 @@
             color: #fca5a5;
         }
 
+        /* Full-width warning callout */
+        .risk-highlight-fullwidth {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(220, 38, 38, 0.15));
+            border: 2px solid rgba(239, 68, 68, 0.4);
+            border-radius: 16px;
+            padding: 24px 32px;
+            margin-top: 32px;
+        }
+
+        .warning-callout-content {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .warning-callout-icon {
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+
+        .warning-callout-content p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 17px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .warning-callout-content strong {
+            color: #fca5a5;
+        }
+
+        @media (max-width: 640px) {
+            .warning-callout-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+        }
+
         /* Steps Section */
         .steps-section {
             background: white;
@@ -935,9 +976,14 @@
                 <div class="risk-card">
                     <h3>📉 Dano Reputacional</h3>
                     <p>Além do impacto financeiro, o custo reputacional pode ser devastador para a marca empregadora.</p>
-                    <div class="risk-highlight">
-                        <strong>⚠️ Atenção:</strong> Em 2026, ignorar a saúde mental e a documentação rigorosa pode custar caro para sua empresa.
-                    </div>
+                </div>
+            </div>
+            
+            <!-- Full-width warning callout -->
+            <div class="risk-highlight-fullwidth">
+                <div class="warning-callout-content">
+                    <span class="warning-callout-icon">⚠️</span>
+                    <p><strong>Atenção:</strong> Em 2026, ignorar a saúde mental e a documentação rigorosa pode custar caro para sua empresa.</p>
                 </div>
             </div>
         </div>
