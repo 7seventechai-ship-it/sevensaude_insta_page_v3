@@ -2,8 +2,8 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NR-1 Atualizada 2025/2026: Guia Completo Para Empresas | Seven Saúde</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>NR-1 Atualizada 2026: Guia Completo Para Empresas | Seven Saúde</title>
     <meta name="description" content="A NR-1 mudou: saúde mental é obrigatória e a fiscalização exige provas. Saiba como preparar sua empresa e evitar multas do MTE em 2026.">
     <link rel="icon" type="image/webp" href="images/shared/favicon.webp">
     
@@ -22,6 +22,11 @@
             box-sizing: border-box;
         }
 
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
         :root {
             --primary: #24a8a0;
             --primary-light: #36b8a6;
@@ -35,6 +40,11 @@
             --white: #ffffff;
             --gray-50: #f8fafc;
             --gray-100: #f1f5f9;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
         }
 
         body {
@@ -53,7 +63,7 @@
         /* Header */
         header {
             background: var(--dark);
-            padding: 16px 0;
+            padding: 12px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -64,11 +74,17 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            flex-shrink: 0;
         }
 
         .logo img {
-            height: 48px;
+            height: 40px;
             width: auto;
+            max-width: 100%;
         }
 
         .btn {
@@ -111,8 +127,9 @@
         }
 
         .btn-header {
-            padding: 10px 24px;
-            font-size: 14px;
+            padding: 8px 16px;
+            font-size: 12px;
+            white-space: nowrap;
         }
 
         /* Hero */
@@ -676,7 +693,57 @@
             fill: white;
         }
 
-        /* Responsive */
+        /* Mobile Responsive */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .hero {
+                padding: 60px 0 40px;
+            }
+
+            .hero-badge {
+                font-size: 11px;
+                padding: 6px 12px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            section {
+                padding: 48px 0;
+            }
+
+            .step-item {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .cta-section h2 {
+                font-size: 28px;
+            }
+
+            .cta-features {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+
         @media (min-width: 640px) {
             h1 {
                 font-size: 56px;
@@ -700,6 +767,11 @@
 
             .footer-content {
                 grid-template-columns: 2fr 1fr 1fr;
+            }
+
+            .btn-header {
+                padding: 10px 20px;
+                font-size: 13px;
             }
         }
 
@@ -749,7 +821,7 @@
                 <div class="logo">
                     <img src="images/shared/sevensaude_logo.webp" alt="Seven Saúde">
                 </div>
-                <a href="#cta" class="btn btn-header">Falar com especialista</a>
+                <a href="#cta" class="btn btn-header">Especialistas</a>
             </div>
         </div>
     </header>
@@ -758,11 +830,11 @@
     <section class="hero" style="padding: 80px 0 60px;">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge">⚠️ Atualização 2025/2026</div>
+                <div class="hero-badge">⚠️ Atualização 2026</div>
                 <h1>A Nova NR-1 Chegou: <span class="highlight">Sua Empresa Está Preparada</span> para a Fiscalização de 2026?</h1>
-                <p class="hero-subtitle">As mudanças de 2025/2026 tornaram a fiscalização mais rigorosa. Agora, não basta ter documentos — é preciso <strong>provar</strong> que sua empresa implementou cada medida de segurança. E sim, <strong>saúde mental agora é obrigatória</strong>.</p>
+                <p class="hero-subtitle">As mudanças de 2026 tornaram a fiscalização mais rigorosa. Agora, não basta ter documentos — é preciso <strong>provar</strong> que sua empresa implementou cada medida de segurança. E sim, <strong>saúde mental agora é obrigatória</strong>.</p>
                 <div class="hero-buttons">
-                    <a href="#cta" class="btn btn-white">Falar com Especialista em SST</a>
+                    <a href="#cta" class="btn btn-white">Falar com Especialista</a>
                     <a href="#faq" class="btn btn-outline">Ver Perguntas Frequentes</a>
                 </div>
             </div>
@@ -777,7 +849,7 @@
                     <div class="warning-icon">⚠️</div>
                     <span>O Que Mudou na NR-1 (E Por Que Você Precisa Agir Agora)</span>
                 </div>
-                <p style="font-size: 17px; line-height: 1.8; color: var(--text);">A partir de 2025, a NR-1 exige <strong>documentação comprovável</strong> de todas as ações de segurança e saúde do trabalho. Não é mais suficiente afirmar que sua empresa faz treinamentos ou mapeia riscos — você precisa <strong>provar com registros concretos</strong>. Além disso, a norma agora inclui explicitamente os <strong>riscos psicossociais</strong>: estresse, burnout, assédio e pressão excessiva deixaram de ser "problemas de clima organizacional" e passaram a ser riscos ocupacionais documentados. Para empresas com home office, isso significa também comprovar que orientou seus colaboradores sobre ergonomia e organização da jornada. A fiscalização de 2026 será mais técnica e menos tolerante com documentação incompleta.</p>
+                <p style="font-size: 17px; line-height: 1.8; color: var(--text);">A partir de 2026, a NR-1 exige <strong>documentação comprovável</strong> de todas as ações de segurança e saúde do trabalho. Não basta afirmar que você faz treinamentos — precisa <strong>provar com registros</strong>. Além disso, a norma agora inclui os <strong>riscos psicossociais</strong> (estresse, burnout, assédio) como obrigatórios. Home office também precisa comprovar orientações sobre ergonomia. A fiscalização será mais técnica e menos tolerante.</p>
             </div>
         </div>
     </section>
@@ -790,9 +862,9 @@
                 <h2>NR-1: A Base de Toda a Segurança do Trabalho no Brasil</h2>
             </div>
             <div class="text-block">
-                <p>A <strong>Norma Regulamentadora nº 1</strong> é a fundação do sistema de Segurança e Saúde no Trabalho (SST) brasileiro. Ela define os princípios fundamentais que orientam todas as outras 36 normas regulamentadoras. Seu objetivo é prevenir acidentes e doenças ocupacionais — e isso agora inclui oficialmente a <strong>saúde mental</strong>.</p>
+                <p>A <strong>Norma Regulamentadora nº 1</strong> é a fundação do sistema de Segurança e Saúde no Trabalho (SST) brasileiro. Ela define os princípios fundamentais que orientam todas as outras 36 normas regulamentadoras. Seu objetivo é prevenir acidentes e doenças ocupacionais, e isso agora inclui oficialmente a <strong>saúde mental</strong>.</p>
                 <p>A NR-1 estabelece direitos e deveres tanto do empregador quanto do trabalhador, exigindo que as empresas identifiquem riscos, implementem controles, treinem suas equipes e mantenham registros atualizados. É a norma que responde à pergunta: <strong>"O que minha empresa é obrigada a fazer para proteger seus colaboradores?"</strong></p>
-                <p style="background: rgba(36, 168, 160, 0.1); border-left: 4px solid var(--primary); padding: 20px 24px; border-radius: 8px;">Em 2026, ignorá-la pode custar caro — não apenas em multas, mas em processos trabalhistas e danos à reputação.</p>
+                <p style="background: rgba(36, 168, 160, 0.1); border-left: 4px solid var(--primary); padding: 20px 24px; border-radius: 8px;">Em 2026, ignorá-la pode custar caro. Não apenas em multas, mas em processos trabalhistas e danos à reputação.</p>
             </div>
         </div>
     </section>
@@ -847,7 +919,7 @@
                     <h3>📉 Dano Reputacional</h3>
                     <p>Além do impacto financeiro, o custo reputacional pode ser devastador para a marca empregadora.</p>
                     <div class="risk-highlight">
-                        <strong>⚠️ Atenção:</strong> Em 2026, com as mudanças recentes, ignorar a saúde mental e a documentação rigorosa "pode custar caro" — literal e figurativamente.
+                        <strong>⚠️ Atenção:</strong> Em 2026, ignorar a saúde mental e a documentação rigorosa pode custar caro para sua empresa.
                     </div>
                 </div>
             </div>
@@ -913,8 +985,8 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag" style="background: rgba(255, 255, 255, 0.15); color: white;">Solução</span>
-                <h2>Seven Saúde: <span class="highlight">Seu Parceiro</span> em Saúde Ocupacional</h2>
-                <p class="section-subtitle">Cumprir a NR-1 exige tempo, conhecimento técnico e organização — recursos que muitas empresas não têm sobrando. É aí que a Seven Saúde entra.</p>
+                <h2>Seven Saúde: <span class="highlight">Seu Parceiro</span> em NR1</h2>
+                <p class="section-subtitle">Cumprir a NR-1 exige tempo, conhecimento técnico e organização. Recursos que muitas empresas não têm sobrando. É aí que a Seven Saúde entra.</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
@@ -939,7 +1011,7 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 48px;">
-                <p style="font-size: 18px; margin-bottom: 24px;">Com a Seven Saúde, você não precisa se tornar um especialista em SST — você tem um parceiro que cuida disso para você.</p>
+                <p style="font-size: 18px; margin-bottom: 24px;">Com a Seven Saúde, você não precisa se tornar um especialista em NR1 — você tem um parceiro que cuida disso para você.</p>
                 <a href="#cta" class="btn btn-white">Conhecer Solução Seven Saúde</a>
             </div>
         </div>
@@ -963,7 +1035,7 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">O que mudou na NR-1 em 2025/2026?</div>
-                    <div class="faq-answer">As mudanças intensificaram a exigência de documentação comprovável: não basta dizer que fez treinamentos ou mapeou riscos — é preciso provar com registros concretos. Além disso, a saúde mental agora é explicitamente obrigatória.</div>
+                    <div class="faq-answer">As mudanças de 2026 exigem documentação comprovável de todas as ações de SST. Não basta dizer que fez treinamentos — precisa provar com registros. A saúde mental agora é explicitamente obrigatória.</div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">O que são GRO e PGR?</div>
@@ -1003,15 +1075,15 @@
                 <div style="background: rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 32px; margin: 32px 0;">
                     <h3 style="color: var(--primary-light); margin-bottom: 20px; font-size: 22px;">✅ A Seven Saúde está pronta para ajudar:</h3>
                     <ul style="list-style: none; text-align: left; max-width: 500px; margin: 0 auto;">
-                        <li style="padding: 8px 0; color: rgba(255, 255, 255, 0.9);">• Telemedicina ocupacional ágil e sem burocracia</li>
-                        <li style="padding: 8px 0; color: rgba(255, 255, 255, 0.9);">• Gestão completa de exames admissionais, demissionais e periódicos</li>
-                        <li style="padding: 8px 0; color: rgba(255, 255, 255, 0.9);">• Emissão de ASO em 24 horas</li>
-                        <li style="padding: 8px 0; color: rgba(255, 255, 255, 0.9);">• Controle automatizado de vencimentos e pendências</li>
-                        <li style="padding: 8px 0; color: rgba(255, 255, 255, 0.9);">• Suporte na organização da documentação para fiscalização</li>
+                        <li style="padding: 8px 0; color: rgba(255, 255, 255, 0.9);">• Telemedicina para seus colaboradores, sem filas</li>
+                        <li style="padding: 8px 0; color: rgba(255, 255, 255, 0.9);">• Saúde mental incluída (psicólogos de verdade)</li>
+                        <li style="padding: 8px 0; color: rgba(255, 255, 255, 0.9);">• Exames admissionais, demissionais e periódicos</li>
+                        <li style="padding: 8px 0; color: rgba(255, 255, 255, 0.9);">• ASO em até 24 horas, válido e rastreável</li>
+                        <li style="padding: 8px 0; color: rgba(255, 255, 255, 0.9);">• Mais de 35 especialidades médicas disponíveis</li>
                     </ul>
                 </div>
 
-                <a href="https://wa.me/551931996408?text=Olá%2C%20gostaria%20de%20falar%20com%20um%20especialista%20sobre%20NR-1" class="btn btn-white" style="font-size: 18px; padding: 18px 40px;">Falar com Especialista em SST</a>
+                <a href="https://wa.me/551931996408?text=Olá%2C%20gostaria%20de%20falar%20com%20um%20especialista%20sobre%20NR-1" class="btn btn-white" style="font-size: 18px; padding: 18px 40px;">Falar com Especialista em NR1</a>
                 
                 <div class="cta-features">
                     <span class="cta-feature">Consultoria gratuita</span>
