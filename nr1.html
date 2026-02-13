@@ -876,9 +876,13 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" style="padding: 80px 0 60px;">
+    <section class="hero" style="padding: 80px 0 60px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0;">
+            <img src="images/nr1/hero-workplace-safety.png" alt="Ambiente de trabalho seguro" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.25;">
+            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 41, 59, 0.9) 100%);"></div>
+        </div>
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-content" style="position: relative; z-index: 2;">
                 <div class="hero-badge">⚠️ Atualização 2026</div>
                 <h1>A Nova NR-1 Chegou: <span class="highlight">Sua Empresa Está Preparada</span> para a Fiscalização de 2026?</h1>
                 <p class="hero-subtitle">As mudanças de 2026 tornaram a fiscalização mais rigorosa. Agora, não basta ter documentos — é preciso <strong>provar</strong> que sua empresa implementou cada medida de segurança. E sim, <strong>saúde mental agora é obrigatória</strong>.</p>
@@ -945,14 +949,23 @@
             </div>
             <div class="compliance-grid">
                 <div class="compliance-card">
+                    <div style="width: 100%; height: 120px; border-radius: 12px; overflow: hidden; margin-bottom: 16px;">
+                        <img src="images/nr1/compliance-clt.png" alt="Empresas CLT" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                     <h3><span class="icon-check">✓</span> Empresas CLT</h3>
                     <p>Se você tem colaboradores em regime CLT, precisa cumprir a NR-1. Sem exceção de porte ou setor.</p>
                 </div>
                 <div class="compliance-card">
+                    <div style="width: 100%; height: 120px; border-radius: 12px; overflow: hidden; margin-bottom: 16px;">
+                        <img src="images/nr1/compliance-homeoffice.png" alt="Home Office" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                     <h3><span class="icon-check">✓</span> Home Office</h3>
                     <p>Empresas 100% remotas também precisam documentar orientações sobre ergonomia e pausas.</p>
                 </div>
                 <div class="compliance-card">
+                    <div style="width: 100%; height: 120px; border-radius: 12px; overflow: hidden; margin-bottom: 16px;">
+                        <img src="images/nr1/compliance-escritorio.png" alt="Escritórios" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                     <h3><span class="icon-check">✓</span> Escritórios</h3>
                     <p>Sim, escritórios e funções administrativas também precisam de GRO e PGR atualizados.</p>
                 </div>
@@ -1061,22 +1074,30 @@
             </div>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">🏥</div>
+                    <div style="width: 100%; height: 140px; border-radius: 12px; overflow: hidden; margin-bottom: 20px;">
+                        <img src="images/nr1/feature-telemedicina.png" alt="Telemedicina" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                     <h3>Telemedicina Completa</h3>
                     <p>Mais de 35 especialidades médicas. Atendimento em até 7 minutos, sem filas e sem burocracia.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🧠</div>
+                    <div style="width: 100%; height: 140px; border-radius: 12px; overflow: hidden; margin-bottom: 20px;">
+                        <img src="images/nr1/feature-saude-mental.png" alt="Saúde Mental" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                     <h3>Saúde Mental Incluída</h3>
                     <p>Psicólogos de verdade para sua equipe. Atendimento online, sem complicação.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🍎</div>
+                    <div style="width: 100%; height: 140px; border-radius: 12px; overflow: hidden; margin-bottom: 20px;">
+                        <img src="images/nr1/feature-nutricao.png" alt="Nutrição" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                     <h3>Nutrição Personalizada</h3>
                     <p>Nutricionistas que orientam sua equipe com dietas personalizadas para cada objetivo.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">💊</div>
+                    <div style="width: 100%; height: 140px; border-radius: 12px; overflow: hidden; margin-bottom: 20px;">
+                        <img src="images/nr1/feature-farmacia.png" alt="Desconto em Farmácia" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                     <h3>Desconto em Farmácia</h3>
                     <p>A partir de 20% de desconto nas principais farmácias. Economia real para seus colaboradores.</p>
                 </div>
