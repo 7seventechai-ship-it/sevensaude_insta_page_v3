@@ -6,6 +6,18 @@
   <title>Campanha de Indicação · Mês do Consumidor Seventech 2026</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+  <!-- Open Graph / WhatsApp / Social sharing -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://seventechoficial.com/campanha-indicacao" />
+  <meta property="og:title"       content="Campanha de Indicação · Mês do Consumidor Seventech 2026" />
+  <meta property="og:description" content="Indique. A gente vende. O bônus é seu. R$100 por produto vendido — válida até 31/03." />
+  <meta property="og:image"       content="https://seventechoficial.com/images/campanha-indicacao/gentileza-gera-gentileza.webp" />
+  <meta property="og:image:width"  content="655" />
+  <meta property="og:image:height" content="576" />
+  <meta property="og:locale"      content="pt_BR" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="twitter:image"      content="https://seventechoficial.com/images/campanha-indicacao/gentileza-gera-gentileza.webp" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Merriweather:wght@700;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -253,6 +265,7 @@
     /* ── HERO CARD (right side) ── */
     .hero-card {
       display: none;
+      align-self: end;
       background: rgba(255,255,255,0.04);
       backdrop-filter: blur(24px) saturate(160%);
       -webkit-backdrop-filter: blur(24px) saturate(160%);
@@ -420,6 +433,19 @@
 
     /* ══════════════════ STEPS ══════════════════ */
     .steps-wrap { margin-top: 52px; position: relative; }
+
+    .steps-image-wrap {
+      margin-top: 52px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(18,35,46,0.12);
+    }
+    .steps-image-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 20px;
+    }
     .steps-connector {
       display: none;
       position: absolute;
@@ -1017,6 +1043,12 @@
             <p>R$&nbsp;100 por produto vendido, direto na sua conta. Completou 5 vendas? O valor dobra — retroativo.</p>
           </div>
         </div>
+      </div>
+
+      <div class="steps-image-wrap">
+        <img src="images/campanha-indicacao/gentileza-gera-gentileza.webp"
+             alt="Gentileza gera gentileza — Campanha Seventech"
+             loading="lazy" />
       </div>
     </div>
   </section>

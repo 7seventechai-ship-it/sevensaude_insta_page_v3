@@ -10,6 +10,9 @@ cd "$REPO_DIR"
 
 MSG="${1:-chore: atualiza arquivos do projeto}"
 
+echo "🔄  Regenerando páginas das vendedoras..."
+python3 gerar_paginas_vendedoras.py
+
 echo "📦  Staging..."
 git add -A -- ':!.env' ':!*.env'   # garante que .env nunca entre
 
