@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Campanha de Indicação · Mês do Consumidor Seventech 2026</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Merriweather:wght@700;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -251,69 +253,76 @@
     /* ── HERO CARD (right side) ── */
     .hero-card {
       display: none;
-      background: rgba(47,180,162,0.06);
-      border: 1px solid rgba(47,180,162,0.2);
-      border-radius: 18px;
-      padding: 34px;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(24px) saturate(160%);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 24px;
+      padding: 40px 36px;
       position: relative;
+      box-shadow:
+        0 8px 32px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.08);
     }
     .hero-card::before {
       content: '';
       position: absolute;
-      top: -1px; left: 24px; right: 24px;
+      top: -1px; left: 28px; right: 28px;
       height: 2px;
       background: linear-gradient(to right, var(--teal), var(--green));
       border-radius: 0 0 2px 2px;
     }
 
     .card-label {
-      color: rgba(255,255,255,0.4);
-      font-size: 10px;
+      color: rgba(255,255,255,0.45);
+      font-size: 11px;
       font-weight: 600;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.8px;
       text-transform: uppercase;
-      margin-bottom: 22px;
+      margin-bottom: 28px;
     }
 
     .reward-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .reward-row:last-of-type { border-bottom: none; }
     .reward-desc {
-      color: rgba(255,255,255,0.6);
-      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      font-size: 16px;
       font-weight: 400;
     }
     .reward-val {
-      font-weight: 700;
-      font-size: 18px;
+      font-weight: 800;
+      font-size: 22px;
       color: var(--white);
     }
     .reward-val.teal { color: var(--teal); }
-    .reward-val.green { color: var(--green); font-size: 20px; }
+    .reward-val.green { color: var(--green); font-size: 24px; }
 
     .card-cta-box {
-      margin-top: 22px;
-      background: linear-gradient(135deg, rgba(125,217,87,0.12), rgba(47,180,162,0.12));
-      border: 1px solid rgba(125,217,87,0.25);
-      border-radius: 12px;
-      padding: 18px 16px;
+      margin-top: 26px;
+      background: linear-gradient(135deg, rgba(125,217,87,0.10), rgba(47,180,162,0.10));
+      border: 1px solid rgba(125,217,87,0.22);
+      border-radius: 14px;
+      padding: 22px 20px;
       text-align: center;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
     .card-cta-box p {
       color: rgba(255,255,255,0.55);
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 400;
       margin-bottom: 6px;
     }
     .card-cta-box strong {
       color: var(--green);
-      font-size: 15px;
-      font-weight: 700;
+      font-size: 20px;
+      font-weight: 800;
     }
 
     /* ══════════════════ STATS BAR ══════════════════ */
@@ -945,13 +954,13 @@
         <p class="card-label">Como funciona a bonificação</p>
 
         <div class="reward-row">
-          <span class="reward-val" style="font-size:2rem;">R$&nbsp;100</span>
+          <span class="reward-val" style="font-size:3.2rem;letter-spacing:-1px;">R$&nbsp;100</span>
           <span class="reward-desc">por produto vendido</span>
         </div>
 
-        <div class="card-cta-box" style="margin-top:20px;">
-          <strong style="color:var(--green);font-size:15px;">2× a partir de 5 produtos</strong>
-          <p style="margin-top:6px;font-size:12px;opacity:0.75;">Válida para recomendações convertidas em vendas</p>
+        <div class="card-cta-box" style="margin-top:24px;">
+          <strong>2× a partir de 5 produtos</strong>
+          <p style="margin-top:8px;">Válida para recomendações convertidas em vendas</p>
         </div>
       </div>
     </div>

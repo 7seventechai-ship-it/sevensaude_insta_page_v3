@@ -112,6 +112,7 @@ def gerar_pagina(nome: str) -> None:
     #    então precisamos subir dois níveis para chegar ao root
     html = html.replace('src="images/', 'src="../../images/')
     html = html.replace("src='images/", "src='../../images/")
+    html = html.replace('href="favicon.ico"', 'href="../../favicon.ico"')
 
     # 4. Salvar
     out_dir = OUTPUT_BASE / nome
