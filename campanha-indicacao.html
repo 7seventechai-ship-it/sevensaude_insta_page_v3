@@ -269,8 +269,9 @@
 
     /* ── HERO CARD (right side) ── */
     .hero-card {
-      display: none;
+      display: block;
       align-self: end;
+      margin-top: 32px;
       background: rgba(255,255,255,0.04);
       backdrop-filter: blur(24px) saturate(160%);
       -webkit-backdrop-filter: blur(24px) saturate(160%);
@@ -304,13 +305,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 0;
+      padding: 16px 0;
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .reward-row:last-of-type { border-bottom: none; }
     .reward-desc {
       color: rgba(255,255,255,0.65);
-      font-size: 19px;
+      font-size: 22px;
       font-weight: 400;
     }
     .reward-val {
@@ -320,6 +321,29 @@
     }
     .reward-val.teal { color: var(--teal); }
     .reward-val.green { color: var(--green); font-size: 24px; }
+
+    .card-highlight-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .card-highlight-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex-shrink: 0;
+    }
+    .card-highlight-text {
+      color: rgba(255,255,255,0.8);
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .card-highlight-text span {
+      color: var(--teal);
+      font-weight: 700;
+    }
 
     .card-cta-box {
       margin-top: 26px;
@@ -333,13 +357,13 @@
     }
     .card-cta-box p {
       color: rgba(255,255,255,0.55);
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 400;
       margin-bottom: 6px;
     }
     .card-cta-box strong {
       color: var(--green);
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 800;
     }
 
@@ -941,7 +965,7 @@
     /* md: 900px+ — full desktop layout */
     @media (min-width: 900px) {
       .hero-inner { grid-template-columns: 1.1fr 0.9fr; gap: 64px; }
-      .hero-card  { display: block; }
+      .hero-card  { margin-top: 0; }
       .steps-layout { grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
       .steps-image-wrap { order: 0; }
       .steps-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -998,8 +1022,13 @@
         <p class="card-label">Como funciona a bonificação</p>
 
         <div class="reward-row">
-          <span class="reward-val" style="font-size:3.2rem;letter-spacing:-1px;">R$&nbsp;100</span>
-          <span class="reward-desc">por produto vendido</span>
+          <span class="reward-val" style="font-size:3.8rem;letter-spacing:-2px;">R$&nbsp;100</span>
+          <span class="reward-desc">por produto<br/>vendido</span>
+        </div>
+
+        <div class="card-highlight-row">
+          <div class="card-highlight-dot"></div>
+          <span class="card-highlight-text">Ganhe <span>R$&nbsp;1.000 ou mais</span> já em Abril</span>
         </div>
 
         <div class="card-cta-box" style="margin-top:24px;">
