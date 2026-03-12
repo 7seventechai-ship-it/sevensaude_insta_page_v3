@@ -20,6 +20,6 @@ echo "📝  Commit: $MSG"
 git commit -m "$MSG" || echo "ℹ️  Nada novo para commitar."
 
 echo "🚀  Push para produção..."
-git push
+git push --force-with-lease origin main
 
 echo "✅  Deploy concluído!"
