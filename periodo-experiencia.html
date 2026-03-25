@@ -92,8 +92,11 @@
   .btn-download:hover { transform: translateY(-3px); box-shadow: 0 16px 48px rgba(var(--primary-rgb),0.45); }
 
   /* NAV */
-  nav { position: sticky; top: 0; z-index: 1000; padding: 0 48px; height: 68px; display: flex; align-items: center; justify-content: space-between; background: transparent; transition: all 0.4s var(--ease-smooth); }
-  nav.scrolled { background: rgba(244,249,248,0.94); backdrop-filter: blur(16px) saturate(180%); border-bottom: 1px solid var(--border); box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+  nav { position: sticky; top: 0; z-index: 1000; padding: 0 48px; height: 68px; display: flex; align-items: center; justify-content: space-between; background: transparent; transition: border-color 0.4s var(--ease-smooth), box-shadow 0.4s var(--ease-smooth); }
+  /* backdrop-filter fica no ::before para não criar containing block para filhos fixed */
+  nav::before { content: ''; position: absolute; inset: 0; background: rgba(244,249,248,0); backdrop-filter: blur(0px); transition: background 0.4s var(--ease-smooth), backdrop-filter 0.4s var(--ease-smooth); z-index: -1; pointer-events: none; }
+  nav.scrolled::before { background: rgba(244,249,248,0.94); backdrop-filter: blur(16px) saturate(180%); }
+  nav.scrolled { border-bottom: 1px solid var(--border); box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
   .nav-logo { height: 38px; width: auto; object-fit: contain; }
   .nav-links { display: flex; align-items: center; gap: 28px; flex-shrink: 0; }
   .nav-links a { font-size: 14px; font-weight: 600; color: #fff; transition: color 0.2s; white-space: nowrap; }
